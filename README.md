@@ -1,16 +1,17 @@
 # DHL.1
 This is Part 1 of DHL Initial Analysis
+
 Part 1:
 
 Introduction:
 
 Recommend the best MFG and DC along with six candidates in Newark, Atlanta, Dallas, Seattle, LA, and Chicago to get min fixed cost, min var cost, inbound and outbound cost. 2M bottles volume needs to be distributed into 30 major markets in the United States. 
 
-Methodology
+Methodology:
 
 The following OR model used PuLP and the MIP model to solve for optimality with a 20% profit margin
 
-Assumptions and Variables
+Assumptions and Variables:
 
 Demand: Fixed annual demand of 2M bottles, allocated to 30 cities. We assume everything is logical and no shortages or backlogs. Volumes can be split across DCs for flexibility
 
@@ -23,13 +24,12 @@ Outbound Cost: Shipments of 6 bottles per order, with one shipment per order. Fi
 Total Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed cost $9.75 per shipment + $3.50 per 500 miles. Distribution processing cost per order varies by DC. Distances use provided matrices; assumes direct parcel shipping, no intermediate hubs
 
 
-
-OR Model
+OR Model: 
 I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following variables using Dantzig-Wolfe Decomposition
 
 
 
-Results
+Results: 
 The optimized network yields a total annual cost of $12,196,819.33. Key recommendations:
 	Open Facilities: 
 	Manufacturing: Dallas, TX (only). Fixed cost: $700,000; variable cost: $1.80/bottle (competitive among candidates).
