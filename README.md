@@ -1,6 +1,7 @@
 # DHL.1
 This is Part 1 of DHL Initial Analysis
 Part 1:
+
 Introduction:
 
 Recommend the best MFG and DC along with six candidates in Newark, Atlanta, Dallas, Seattle, LA, and Chicago to get min fixed cost, min var cost, inbound and outbound cost. 2M bottles volume needs to be distributed into 30 major markets in the United States. 
