@@ -23,23 +23,8 @@ Total Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed
 
 
 
-
-
 OR Model
-I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following variables using Dantzig-Wolfe Decomposition:
-Y_m^i:\ 1\ if\ MFG\ opens\ at\ candidate\ i\ \in\ I\ (6\ candidates)
-Y_d^i:\ 1\ if\ DC\ opens\ at\ candidate\ i\ \in\ I
-X_{md}^{ij}:\ Bottles\ shipped\ from\ MFG\ i\ to\ DC\ j
-\ Z_{dc}^{jc}:\ Bottles\ shipped\ from\ DC\ j\ to\ customer\ c\ \in\ C\ (30\ customers)
-f_m^i,f_d^j:\ Fixed\ MFG/DC\ costs\ at\ site\ i/j
-v_m^i:Variable\ MFG\ cost\ per\ bottle\ at\ i\ 
-d_{md}^{ij}:Miles from MFG i to DC j
-d_{dc}^{jc}:Miles\ from\ DC\ j\ to\ customer\ c
-p^j:Processing\ cost\ per\ order\ at\ DC\ j
-
-Objective Function:
-\min{\sum_{i\in I}{f_m^iY_m^i}}+\sum_{j\in I}{f_d^jY_d^j}+\sum_{i,j\in I}{v_m^iX_{md}^{ij}}+\sum_{i,j\in I}{\left(\frac{X_{md}^{ij}}{2000}\cdot3\cdot d_{md}^{ij}\right)+}+\sum_{j\in I,c\in C}\left(\frac{Z_{dc}^{jc}}{6}\cdot\left(p^j+9.75+3.5\cdot\frac{d_{dc}^{jc}}{500}\right)\right)
-
+I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following variables using Dantzig-Wolfe Decomposition
 
 
 
@@ -51,6 +36,7 @@ The optimized network yields a total annual cost of $12,196,819.33. Key recommen
 	Flows: 
 	All 2,000,000 bottles produced and distributed from Dallas (self-supply: 2,000,000 bottles inbound to its DC).
 	Dallas serves all 30 customer markets (no splits needed; central location minimizes average outbound distance ~1,000 miles).
+
 Cost Component	Annual Cost ($)	% of Total
 Fixed (MFG + DC)	1,050,000	8.6%
 Variable Manufacturing	3,600,000	29.5%
@@ -58,4 +44,3 @@ Inbound Transportation	0	0% (co-location)
 Outbound (Shipping + Processing)	7,546,819	61.9%
 Total	12,196,819	100%
 
-<img width="415" height="693" alt="image" src="https://github.com/user-attachments/assets/623ed6f9-5646-446f-978f-24a36662b244" />
