@@ -26,7 +26,7 @@ Total Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed
 
 OR Model: 
 I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following variables using Dantzig-Wolfe Decomposition
-
+min⁡∑_(i∈I)▒〖f_m^i Y_m^i 〗+∑_(j∈I)▒〖f_d^j Y_d^j 〗+∑_(i,j∈I)▒〖v_m^i X_md^ij 〗+∑_(i,j∈I)▒〖((X_md^ij)/2000⋅3⋅d_md^ij )+〗+∑_(j∈I,c∈C)▒((Z_dc^jc)/6⋅(p^j+9.75+3.5⋅(d_dc^jc)/500)) 
 
 
 Results: 
