@@ -26,7 +26,8 @@ Total Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed
 
 OR Model: 
 I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following equation：
-<img width="1201" height="120" alt="屏幕截图 2025-10-15 140954" src="https://github.com/user-attachments/assets/339bb7ec-2d63-4832-8c95-e6bbf480283d" />
+<img width="848" height="94" alt="屏幕截图 2025-10-15 173045" src="https://github.com/user-attachments/assets/4d87f227-0bc3-4b72-9eaa-86f34c73d6cc" />
+
 
 Results: 
 The optimized network yields a total annual cost of $12,196,819.33. Key recommendations:
