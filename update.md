@@ -300,12 +300,3 @@ def simplify_name(name: str) -> str:
 
 ---
 
-## 项目指令说明
-
-**重要说明：根据个人及项目设置，所有回答均不使用emoji表情符号，保持专业文档格式。**
-
----
-
-*文档创建时间：2025年10月15日*  
-*代码版本：1_clean.py (Enhanced Supply Chain Optimization)*  
-*更新说明：已移除所有emoji表情符号，采用纯文本专业格式*
