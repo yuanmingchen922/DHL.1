@@ -1,47 +1,27 @@
-# DHL.1 - Enhanced Supply Chain Optimization
-This is Part 1 of DHL Initial Analysis (Updated - Using Real Data Only)
+## Iteration Version 3
 
-Part 1:
+## This Markdown file is the iteration of model, objective function, constraints with detailed mathematics proof and few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
 
-Introduction:
-
-Recommend the best MFG and DC along with six candidates in Newark, Atlanta, Dallas, Seattle, LA, and Chicago to get min fixed cost, min var cost, inbound and outbound cost. 2M bottles volume needs to be distributed into 30 major markets in the United States. 
-
-Methodology:
-
-The following OR model used PuLP and the MIP model to solve for optimality with a 20% profit margin
-
-Assumptions and Variables:
-
-Demand: Fixed annual demand of 2M bottles, allocated to 30 cities. We assume everything is logical and no shortages or backlogs. Volumes can be split across DCs for flexibility
-
-Facility Roles: Each candidate site can host MFG, DC, both, or neither.
-
-Inbound Cost: Full truckloads of 2000 bottles at $3 per mile. Approximate the # of truckloads as volume / 2,000
-
-Outbound Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed cost $9.75 per shipment + $3.50 per 500 miles. Distribution processing cost per order varies by DC
-
-Total Cost: Shipments of 6 bottles per order, with one shipment per order. Fixed cost $9.75 per shipment + $3.50 per 500 miles. Distribution processing cost per order varies by DC. Distances use provided matrices; assumes direct parcel shipping, no intermediate hubs
+## Author: Mingchen Yuan, my2878@columbia.edu, @yuanmingchen922
+## Github Link: "https://github.com/yuanmingchen922/DHL.1"
 
 
-OR Model: 
-I formulated a capacitated facility location model with transportation costs, a standard OR approach for network design, with the following equation：
-<img width="848" height="94" alt="屏幕截图 2025-10-15 173045" src="https://github.com/user-attachments/assets/4d87f227-0bc3-4b72-9eaa-86f34c73d6cc" />
+# My overall workflow is illurstrated as below 
+Farkas Lemma⇒Weak Duality⇒Strong Duality⇒KKT Conditions⇒Primal–Dual Convergence
+
+# Objective Function Version 3: A gengeral form 
+$$
+\boxed{
+\max_{\lambda,\mu \ge 0} \; \min_{X,Z,Y} \;
+\Bigg[
+\sum_i f_m^i(1+\alpha_i)Y_i
++\sum_j f_d^j(1+\beta_j)Y_j
++\sum_{i,j}\Big(v_m^i+\frac{3}{2000}d^{MD}_{ij}(1+\gamma_{ij})\Big)X_{ij}
++\sum_{j,c}\frac{Z_{jc}}{6}\Big(p^j+9.75+3.5\frac{d^{DC}_{jc}}{500}\Big)(1+\delta_{jc})
++\sum_{i,j}\lambda_{ij}(X_{ij}-U_{ij}Y_i)
++\sum_{j,c}\mu_{jc}(Z_{jc}-V_{jc}Y_j)
+\Bigg]
+}$$
 
 
-Results: 
-The optimized network yields a total annual cost of $12,196,819.33. Key recommendations:
-	Open Facilities: 
-	Manufacturing: Dallas, TX (only). Fixed cost: $700,000; variable cost: $1.80/bottle (competitive among candidates).
-	Distribution: Dallas, TX (only; co-located with MFG to eliminate inbound costs).
-	Flows: 
-	All 2,000,000 bottles produced and distributed from Dallas (self-supply: 2,000,000 bottles inbound to its DC).
-	Dallas serves all 30 customer markets (no splits needed; central location minimizes average outbound distance ~1,000 miles).
-
-Cost Component	Annual Cost ($)	% of Total
-Fixed (MFG + DC)	1,050,000	8.6%
-Variable Manufacturing	3,600,000	29.5%
-Inbound Transportation	0	0% (co-location)
-Outbound (Shipping + Processing)	7,546,819	61.9%
-Total	12,196,819	100%
-
+# Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If cased any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one.
