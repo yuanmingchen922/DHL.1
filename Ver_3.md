@@ -170,6 +170,38 @@ L
 \tag{Sep}
 \]
 
+\section*{4. Correct Layered Structure (Rigorous Formulation)}
+
+\subsection*{1) Primal Problem}
+\[
+\begin{aligned}
+\min_{X,Z,Y} \quad & f(X,Z,Y) \\
+\text{s.t.} \quad 
+& g_{ij}(X,Y) = X_{ij} - U_{ij}Y_i \le 0, \\
+& h_{jc}(Z,Y) = Z_{jc} - V_{jc}Y_j \le 0.
+\end{aligned}
+\]
+
+\subsection*{2) Lagrangian Function}
+\[
+L(X,Z,Y;\lambda,\mu)
+= f(X,Z,Y)
++ \sum_{i,j}\lambda_{ij}(X_{ij}-U_{ij}Y_i)
++ \sum_{j,c}\mu_{jc}(Z_{jc}-V_{jc}Y_j),
+\quad \lambda,\mu \ge 0.
+\]
+
+\subsection*{3) Dual Function}
+\[
+G(\lambda,\mu)
+= \min_{X,Z,Y} L(X,Z,Y;\lambda,\mu).
+\]
+
+\subsection*{4) Dual Problem}
+\[
+\max_{\lambda,\mu \ge 0} G(\lambda,\mu).
+\]
+
 
 
 
