@@ -2,7 +2,7 @@
 
 ## This Markdown file is the iteration of the model, objective function, constraints, with detailed mathematical proof anda  few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
 
-## Author: Mingchen Yuan, my2878@columbia.edu, @yuanmingchen922
+## Author: Mingchen Yuan, my2878@columbia.edu
 ## Github Link: "https://github.com/yuanmingchen922/DHL.1"
 
 
@@ -26,13 +26,14 @@ $$
 A more rigorous layered formatting 
 1. Primal Problem:
 $$
+\[
 \begin{aligned}
 \min_{X,Z,Y} \quad & f(X,Z,Y) \\
 \text{s.t.} \quad 
 & g_{ij}(X,Y) = X_{ij} - U_{ij}Y_i \le 0, \\
 & h_{jc}(Z,Y) = Z_{jc} - V_{jc}Y_j \le 0.
 \end{aligned}
-$$
+\]$$
 
 3. Lagrange Function: L(X,Z,Y;\lambda,\mu)
 &= f(X,Z,Y)
