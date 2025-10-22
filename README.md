@@ -14,4 +14,4 @@ Farkas Lemma⇒Weak Duality⇒Strong Duality⇒KKT Conditions⇒Primal–Dua
 
 
 
-# Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If cased any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one.
+# Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If caused any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one.
