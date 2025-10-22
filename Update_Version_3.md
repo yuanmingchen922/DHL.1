@@ -1,3 +1,8 @@
+
+<p align="center">
+  <img src="https://render.githubusercontent.com/render/math?math=\min_{x} f(x)=x^2" />
+</p>
+
 # Update Version 3
 
 ## Introduction
