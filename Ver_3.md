@@ -24,7 +24,8 @@ $$
 }$$
 
 A more rigorous layered formatting 
-1. Primal Problem: $$\
+1. Primal Problem:
+$$\
 \begin{aligned}
 \min_{X,Z,Y} \quad & f(X,Z,Y) \\
 \text{s.t.} \quad 
@@ -33,7 +34,7 @@ A more rigorous layered formatting
 \end{aligned}
 \$$
 
-2. Lagrange Function: L(X,Z,Y;\lambda,\mu)
+3. Lagrange Function: L(X,Z,Y;\lambda,\mu)
 &= f(X,Z,Y)
 + \sum_{i,j} \lambda_{ij}(X_{ij} - U_{ij}Y_i)
 + \sum_{j,c} \mu_{jc}(Z_{jc} - V_{jc}Y_j), \\
