@@ -14,4 +14,4 @@ Farkas Lemma⇒Weak Duality⇒Strong Duality⇒KKT Conditions⇒Primal–Dua
 
 
 
-# Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If caused any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one.
+## Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If caused any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one. Another way is that to download the Version_3.md and put it in vscode with Markdown Preview Enhanced extension installed, or run it in Overleaf. Once again, I am sorry that Github does not render part of the latex code correctly.
