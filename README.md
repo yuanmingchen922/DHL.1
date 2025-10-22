@@ -10,18 +10,8 @@
 Farkas Lemma⇒Weak Duality⇒Strong Duality⇒KKT Conditions⇒Primal–Dual Convergence
 
 # Objective Function Version 3: A gengeral form 
-$$
-\boxed{
-\max_{\lambda,\mu \ge 0} \; \min_{X,Z,Y} \;
-\Bigg[
-\sum_i f_m^i(1+\alpha_i)Y_i
-+\sum_j f_d^j(1+\beta_j)Y_j
-+\sum_{i,j}\Big(v_m^i+\frac{3}{2000}d^{MD}_{ij}(1+\gamma_{ij})\Big)X_{ij}
-+\sum_{j,c}\frac{Z_{jc}}{6}\Big(p^j+9.75+3.5\frac{d^{DC}_{jc}}{500}\Big)(1+\delta_{jc})
-+\sum_{i,j}\lambda_{ij}(X_{ij}-U_{ij}Y_i)
-+\sum_{j,c}\mu_{jc}(Z_{jc}-V_{jc}Y_j)
-\Bigg]
-}$$
+<img width="1866" height="90" alt="lagrida_latex_editor" src="https://github.com/user-attachments/assets/b8beb32c-7b73-4bc2-9211-48abe25ad0d9" />
+
 
 
 # Please go to version_3.md for more detailed math proof. A reminder needs to be stated here is that the function in the pdf did not redener well. If cased any confusion, I sincerely apologize. However, I can make sure that the function here is the correct one.
