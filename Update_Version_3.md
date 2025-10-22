@@ -83,7 +83,7 @@ Under convexity and Slater’s condition, strong duality holds:
 - **Scenario Coefficients**
 
   $\alpha_i, \beta_j, \gamma_{ij}, \delta_{jc}$:  
-  scenario perturbation or sensitivity coefficients (e.g. ±5% cost variations).  
+  scenario perturbation or sensitivity coefficients .  
 
 ---
 
