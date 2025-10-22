@@ -24,10 +24,12 @@ $$
 }$$
 
 A more rigorous layered formatting 
-1. Primal Problem: $$\min_{X,Z,Y} \quad & f(X,Z,Y) \\
+1. Primal Problem:
+\
+\min_{X,Z,Y} \quad & f(X,Z,Y) \\
 \text{s.t.} \quad 
 & g_{ij}(X,Y) = X_{ij} - U_{ij}Y_i \le 0, \\
-& h_{jc}(Z,Y) = Z_{jc} - V_{jc}Y_j \le 0$$
+& h_{jc}(Z,Y) = Z_{jc} - V_{jc}Y_j \le 0.
 
 2. Lagrange Function: L(X,Z,Y;\lambda,\mu)
 &= f(X,Z,Y)
