@@ -2,7 +2,7 @@
 
 ## This Markdown file is the iteration of model, objective function, constraints with detailed mathematics proof and few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
 
-## Author: Mingchen Yuan, my2878@columbia.edu, @yuanmingchen922
+## Author: Mingchen Yuan, my2878@columbia.edu, @yuanmingchen922 
 ## Github Link: "https://github.com/yuanmingchen922/DHL.1"
 
 
