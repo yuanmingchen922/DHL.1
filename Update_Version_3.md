@@ -26,12 +26,10 @@ $$
 A more rigorous layered formatting 
 1. Primal Problem: 
 $$
-\begin{aligned}
 \min_{X,Z,Y} \quad & f(X,Z,Y) \\
 \text{s.t.} \quad 
 & g_{ij}(X,Y) = X_{ij} - U_{ij}Y_i \le 0, \\
 & h_{jc}(Z,Y) = Z_{jc} - V_{jc}Y_j \le 0.
-\end{aligned}
 $$
 
 2. Lagrange Function: 
@@ -516,6 +514,7 @@ transforms the problem into a **dual maximization** framework.
   as the direction of improvement.
 
 This yields a verifiable, computationally efficient optimality framework for the DHL network optimization model.
+
 
 
 
