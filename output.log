@@ -1,0 +1,343 @@
+2025-10-23 14:13:14,898 - INFO - Loading Excel file from: /Users/yuanmingchen/Desktop/DHL.1/DHL/DHLData.xlsx
+2025-10-23 14:13:14,965 - INFO - Successfully loaded Excel file with sheets: ['Customers', 'Distances DC to Cust', 'Distances MFG to DC', 'fixed & variable costs']
+2025-10-23 14:13:14,966 - INFO - Original customer data shape: (30, 6)
+2025-10-23 14:13:14,967 - INFO - Cost data shape: (6, 5)
+2025-10-23 14:13:14,969 - INFO - DC to Customer distance matrix shape: (30, 7)
+2025-10-23 14:13:14,969 - INFO - MFG to DC distance matrix shape: (6, 7)
+2025-10-23 14:13:14,969 - INFO - Processed 6 unique candidate facilities: ['Newark', 'Atlanta', 'Dallas', 'Seattle', 'LA', 'Chicago']
+2025-10-23 14:13:14,969 - INFO - Processed 30 unique customer cities (showing first 5): ['New York', 'LA', 'Chicago', 'Houston', 'Philadelphia']...
+2025-10-23 14:13:14,969 - INFO - === Cost Data Validation ===
+2025-10-23 14:13:14,969 - INFO - Manufacturing fixed costs range: $600,000 - $800,000
+2025-10-23 14:13:14,969 - INFO - Distribution fixed costs range: $300,000 - $450,000
+2025-10-23 14:13:14,969 - INFO - Variable manufacturing costs range: $1.80 - $2.30 per bottle
+2025-10-23 14:13:14,969 - INFO - Processing costs range: $5.25 - $7.00 per order
+2025-10-23 14:13:14,970 - INFO - === Demand Data Analysis ===
+2025-10-23 14:13:14,970 - INFO - Total demand: 2,000,000 bottles (100.0% of target)
+2025-10-23 14:13:14,970 - INFO - Number of customer locations: 30
+2025-10-23 14:13:14,970 - INFO - Average demand per location: 66,667 bottles
+2025-10-23 14:13:14,970 - INFO - Demand range: 20,000 - 300,000 bottles
+2025-10-23 14:13:14,970 - INFO - Top 5 customers by demand: [('New York', '300,000'), ('LA', '240,000'), ('Chicago', '160,000'), ('Houston', '120,000'), ('Philadelphia', '100,000')]
+2025-10-23 14:13:14,970 - INFO - === MFG to DC Distance Matrix Statistics ===
+2025-10-23 14:13:14,970 - INFO - Valid distances: 36
+2025-10-23 14:13:14,970 - INFO - Missing/Error distances: 0
+2025-10-23 14:13:14,970 - INFO - Zero distances (non-diagonal): 0
+2025-10-23 14:13:14,970 - INFO - Distance range: 0.0 - 2870.0 miles
+2025-10-23 14:13:14,970 - INFO - Average distance: 1389.4 miles
+2025-10-23 14:13:14,971 - INFO - === DC to Customer Distance Matrix Statistics ===
+2025-10-23 14:13:14,971 - INFO - Valid distances: 180
+2025-10-23 14:13:14,971 - INFO - Missing/Error distances: 0
+2025-10-23 14:13:14,971 - INFO - Zero distances (non-diagonal): 0
+2025-10-23 14:13:14,971 - INFO - Distance range: 0.0 - 3061.1 miles
+2025-10-23 14:13:14,971 - INFO - Average distance: 1367.7 miles
+2025-10-23 14:13:14,971 - INFO - === Creating Optimization Model (Version 3) ===
+2025-10-23 14:13:14,971 - INFO - Scenario parameters initialized: α_max=0.00%, β_max=0.00%
+2025-10-23 14:13:14,971 - INFO - Created 6 Y_MFG binary variables
+2025-10-23 14:13:14,971 - INFO - Created 6 Y_DC binary variables
+2025-10-23 14:13:14,971 - INFO - Created 36 X_Flow variables
+2025-10-23 14:13:14,971 - INFO - Created 180 Z_Flow variables
+2025-10-23 14:13:14,972 - INFO - Objective function created following Version 3 mathematical structure
+2025-10-23 14:13:14,972 - INFO -   - Component 1: f^m_i(1+α_i)Y_i
+2025-10-23 14:13:14,972 - INFO -   - Component 2: f^d_j(1+β_j)Y_j
+2025-10-23 14:13:14,972 - INFO -   - Component 3: (v^m_i + 3/2000·d^MD_ij(1+γ_ij))X_ij
+2025-10-23 14:13:14,972 - INFO -   - Component 4: Z_jc/6·(p^j+9.75+3.5·d^DC_jc/500)(1+δ_jc)
+2025-10-23 14:13:14,972 - INFO - === Adding Enhanced Constraint System (Version 3) ===
+2025-10-23 14:13:14,972 - INFO - (H1) Added 30 demand satisfaction constraints
+2025-10-23 14:13:14,973 - INFO - (H2) Added 6 flow balance constraints
+2025-10-23 14:13:14,973 - INFO - Computed tight upper bounds: U_ij (uniform), V_jc (demand-based)
+2025-10-23 14:13:14,973 - INFO - (LNK1) Added 36 manufacturing linking constraints
+2025-10-23 14:13:14,973 - INFO - (LNK2) Added 180 distribution linking constraints
+2025-10-23 14:13:14,973 - INFO - (L) Added minimum coverage constraints
+2025-10-23 14:13:14,973 - INFO - (CAP) Added 12 capacity limit constraints
+2025-10-23 14:13:14,974 - INFO - Total constraints added: 266
+2025-10-23 14:13:14,974 - INFO - Constraint structure:
+2025-10-23 14:13:14,974 - INFO -   - Hard Constraints (H): Demand + Flow Balance
+2025-10-23 14:13:14,974 - INFO -   - Linking Constraints (LNK): X_ij ≤ U_ij·Y_i, Z_jc ≤ V_jc·Y_j
+2025-10-23 14:13:14,974 - INFO -   - Logical Constraints (L): Minimum coverage
+2025-10-23 14:13:14,974 - INFO -   - Capacity Constraints (CAP): Realistic bounds
+2025-10-23 14:13:14,974 - INFO - === Starting Optimization Process ===
+2025-10-23 14:13:14,974 - INFO - Problem type: 1
+2025-10-23 14:13:14,974 - INFO - Number of variables: 228
+2025-10-23 14:13:14,974 - INFO - Number of constraints: 266
+2025-10-23 14:13:14,974 - INFO - Candidate facilities: 6
+2025-10-23 14:13:14,974 - INFO - Customer locations: 30
+2025-10-23 14:13:14,974 - INFO - Available distance pairs: MFG->DC 36, DC->Customer 180
+2025-10-23 14:13:14,974 - INFO - Binary variables: 0, Continuous variables: 216
+2025-10-23 14:13:14,974 - INFO - Attempting to solve with <pulp.apis.coin_api.PULP_CBC_CMD object at 0x16907a690>
+Welcome to the CBC MILP Solver 
+Version: 2.10.3 
+Build Date: Dec 15 2019 
+
+command line - /opt/anaconda3/lib/python3.12/site-packages/pulp/apis/../solverdir/cbc/osx/i64/cbc /var/folders/mg/_h5zy9v95w3_zjqxjvq3vz000000gn/T/f454c508216447459f9ca83a0869906a-pulp.mps -timeMode elapsed -branch -printingOptions all -solution /var/folders/mg/_h5zy9v95w3_zjqxjvq3vz000000gn/T/f454c508216447459f9ca83a0869906a-pulp.sol (default strategy 1)
+At line 2 NAME          MODEL
+At line 3 ROWS
+At line 271 COLUMNS
+At line 1580 RHS
+At line 1847 BOUNDS
+At line 1860 ENDATA
+Problem MODEL has 266 rows, 228 columns and 1056 elements
+Coin0008I MODEL read with 0 errors
+Option for timeMode changed from cpu to elapsed
+Continuous objective value is 1.19482e+07 - 0.00 seconds
+Cgl0003I 0 fixed, 0 tightened bounds, 6 strengthened rows, 0 substitutions
+Cgl0004I processed model has 260 rows, 228 columns (12 integer (12 of which binary)) and 882 elements
+Cbc0038I Initial state - 2 integers unsatisfied sum - 0.99
+Cbc0038I Pass   1: suminf.    0.00000 (0) obj. 1.2777e+07 iterations 34
+Cbc0038I Solution found of 1.2777e+07
+Cbc0038I Relaxing continuous gives 1.24968e+07
+Cbc0038I Before mini branch and bound, 10 integers at bound fixed and 201 continuous
+Cbc0038I Mini branch and bound did not improve solution (0.01 seconds)
+Cbc0038I Round again with cutoff of 1.2442e+07
+Cbc0038I Reduced cost fixing fixed 1 variables on major pass 2
+Cbc0038I Pass   2: suminf.    0.06022 (1) obj. 1.2442e+07 iterations 19
+Cbc0038I Pass   3: suminf.    0.31936 (1) obj. 1.2442e+07 iterations 19
+Cbc0038I Pass   4: suminf.    0.65080 (3) obj. 1.2442e+07 iterations 23
+Cbc0038I Pass   5: suminf.    0.52669 (3) obj. 1.2442e+07 iterations 15
+Cbc0038I Pass   6: suminf.    0.75013 (3) obj. 1.2442e+07 iterations 27
+Cbc0038I Pass   7: suminf.    0.58925 (3) obj. 1.2442e+07 iterations 7
+Cbc0038I Pass   8: suminf.    0.65080 (3) obj. 1.2442e+07 iterations 30
+Cbc0038I Pass   9: suminf.    1.38573 (4) obj. 1.2442e+07 iterations 6
+Cbc0038I Pass  10: suminf.    1.00000 (4) obj. 1.2442e+07 iterations 64
+Cbc0038I Pass  11: suminf.    1.00000 (4) obj. 1.2442e+07 iterations 37
+Cbc0038I Pass  12: suminf.    1.30375 (4) obj. 1.2442e+07 iterations 16
+Cbc0038I Pass  13: suminf.    0.81365 (3) obj. 1.2442e+07 iterations 58
+Cbc0038I Pass  14: suminf.    0.81365 (3) obj. 1.2442e+07 iterations 5
+Cbc0038I Pass  15: suminf.    0.49116 (2) obj. 1.2442e+07 iterations 23
+Cbc0038I Pass  16: suminf.    0.49116 (1) obj. 1.2442e+07 iterations 8
+Cbc0038I Pass  17: suminf.    0.18860 (1) obj. 1.2442e+07 iterations 20
+Cbc0038I Pass  18: suminf.    1.36677 (4) obj. 1.2442e+07 iterations 35
+Cbc0038I Pass  19: suminf.    1.00000 (4) obj. 1.2442e+07 iterations 17
+Cbc0038I Pass  20: suminf.    0.76860 (3) obj. 1.2442e+07 iterations 8
+Cbc0038I Pass  21: suminf.    0.56342 (3) obj. 1.2442e+07 iterations 15
+Cbc0038I Pass  22: suminf.    1.15549 (3) obj. 1.2442e+07 iterations 17
+Cbc0038I Pass  23: suminf.    1.09860 (3) obj. 1.2442e+07 iterations 7
+Cbc0038I Pass  24: suminf.    0.73324 (3) obj. 1.2442e+07 iterations 9
+Cbc0038I Pass  25: suminf.    0.49116 (2) obj. 1.2442e+07 iterations 16
+Cbc0038I Pass  26: suminf.    0.49116 (1) obj. 1.2442e+07 iterations 8
+Cbc0038I Pass  27: suminf.    0.18860 (1) obj. 1.2442e+07 iterations 26
+Cbc0038I Pass  28: suminf.    1.42380 (5) obj. 1.2442e+07 iterations 83
+Cbc0038I Pass  29: suminf.    0.98545 (4) obj. 1.2442e+07 iterations 17
+Cbc0038I Pass  30: suminf.    0.65080 (3) obj. 1.2442e+07 iterations 57
+Cbc0038I Pass  31: suminf.    0.52669 (3) obj. 1.2442e+07 iterations 20
+Cbc0038I No solution found this major pass
+Cbc0038I Before mini branch and bound, 1 integers at bound fixed and 119 continuous
+Cbc0038I Full problem 260 rows 228 columns, reduced to 127 rows 100 columns - 1 fixed gives 125, 99 - still too large
+Cbc0038I Full problem 260 rows 228 columns, reduced to 108 rows 81 columns
+Cbc0038I Mini branch and bound did not improve solution (0.02 seconds)
+Cbc0038I After 0.02 seconds - Feasibility pump exiting with objective of 1.24968e+07 - took 0.01 seconds
+Cbc0012I Integer solution of 12496819 found by feasibility pump after 0 iterations and 0 nodes (0.02 seconds)
+Cbc0012I Integer solution of 12196819 found by DiveCoefficient after 0 iterations and 0 nodes (0.02 seconds)
+Cbc0038I Full problem 260 rows 228 columns, reduced to 39 rows 37 columns
+Cbc0013I At root node, 0 cuts changed objective from 11948239 to 11948239 in 1 passes
+Cbc0014I Cut generator 0 (Probing) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 1 (Gomory) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 2 (Knapsack) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 3 (Clique) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 4 (MixedIntegerRounding2) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0014I Cut generator 5 (FlowCover) - 0 row cuts average 0.0 elements, 0 column cuts (0 active)  in 0.000 seconds - new frequency is -100
+Cbc0010I After 0 nodes, 1 on tree, 12196819 best solution, best possible 11956033 (0.02 seconds)
+Cbc0001I Search completed - best objective 12196819.3321227, took 57 iterations and 2 nodes (0.02 seconds)
+Cbc0032I Strong branching done 8 times (116 iterations), fathomed 2 nodes and fixed 1 variables
+Cbc0035I Maximum depth 0, 3 variables fixed on reduced cost
+Cuts at root node changed objective from 1.19482e+07 to 1.1956e+07
+Probing was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Gomory was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Knapsack was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+Clique was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+MixedIntegerRounding2 was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+FlowCover was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+TwoMirCuts was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+ZeroHalf was tried 1 times and created 0 cuts of which 0 were active after adding rounds of cuts (0.000 seconds)
+
+Result - Optimal solution found
+
+Objective value:                12196819.33212270
+Enumerated nodes:               2
+Total iterations:               57
+Time (CPU seconds):             0.02
+Time (Wallclock seconds):       0.02
+
+Option for printingOptions changed from normal to all
+Total time (CPU seconds):       0.02   (Wallclock seconds):       0.02
+
+2025-10-23 14:13:15,015 - INFO - Optimization completed in 0.04 seconds
+2025-10-23 14:13:15,015 - INFO - Status: Optimal
+2025-10-23 14:13:15,015 - INFO - Solver Status Code: 1
+2025-10-23 14:13:15,016 - INFO - === Solution Validation (KKT Conditions) ===
+2025-10-23 14:13:15,016 - INFO - 
+[KKT-1] Primal Feasibility Check:
+2025-10-23 14:13:15,016 - INFO -   Total production: 2,000,000 bottles
+2025-10-23 14:13:15,016 - INFO -   Total demand served: 2,000,000 bottles
+2025-10-23 14:13:15,016 - INFO -   Expected total demand: 2,000,000 bottles
+2025-10-23 14:13:15,016 - INFO -   [OK] Flow balance constraint satisfied
+2025-10-23 14:13:15,016 - INFO -   [OK] Demand satisfaction constraint satisfied
+2025-10-23 14:13:15,016 - INFO - 
+[Facility Decisions]
+2025-10-23 14:13:15,016 - INFO -   Open manufacturing facilities: 1 - ['Dallas']
+2025-10-23 14:13:15,016 - INFO -   Open distribution centers: 1 - ['Dallas']
+2025-10-23 14:13:15,016 - INFO - 
+[KKT-3] Complementary Slackness Validation:
+2025-10-23 14:13:15,016 - INFO -   Checking: λ*_ij(X*_ij - U_ij·Y*_i) = 0 and μ*_jc(Z*_jc - V_jc·Y*_j) = 0
+2025-10-23 14:13:15,016 - INFO -   [OK] Complementary slackness satisfied (no flow through closed facilities)
+2025-10-23 14:13:15,016 - INFO - 
+[Linking Constraints (LNK)]:
+2025-10-23 14:13:15,016 - INFO -   [OK] All linking constraints satisfied
+2025-10-23 14:13:15,016 - INFO - 
+[Validation Summary]
+2025-10-23 14:13:15,016 - INFO -    ALL KKT CONDITIONS SATISFIED - Solution is optimal
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === OPTIMIZATION RESULTS (Version 3 Framework) ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - 
+TOTAL ANNUAL COST: $12,196,819.33
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === FACILITY DECISIONS (Y Variables) ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - Manufacturing Facilities (Y_i = 1): ['Dallas']
+2025-10-23 14:13:15,016 - INFO - Distribution Centers (Y_j = 1): ['Dallas']
+2025-10-23 14:13:15,016 - INFO - Co-located facilities (MFG+DC): ['Dallas']
+2025-10-23 14:13:15,016 - INFO -   1 facilities serving dual roles
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === FLOW ANALYSIS (X and Z Variables) ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - 
+Manufacturing to DC flows (X_ij):
+2025-10-23 14:13:15,016 - INFO -   MFG Dallas -> DC Dallas: 2,000,000 bottles
+2025-10-23 14:13:15,016 - INFO - 
+Top DC to Customer flows (Z_jc):
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer New York: 300,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer LA: 240,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer Chicago: 160,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer Houston: 120,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer Philadelphia: 100,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer Phoenix: 90,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer San Antonio: 80,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer San Diego: 70,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer Dallas: 70,000 bottles
+2025-10-23 14:13:15,016 - INFO -   DC Dallas -> Customer San Jose: 60,000 bottles
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === DETAILED COST BREAKDOWN (Matching Version 3 Formula) ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - 
+[1] Manufacturing Fixed Cost: ∑f^m_i(1+α_i)Y_i
+2025-10-23 14:13:15,016 - INFO -     $700,000.00 (5.7% of total)
+2025-10-23 14:13:15,016 - INFO -       Dallas: $700,000.00
+2025-10-23 14:13:15,016 - INFO - 
+[2] Distribution Fixed Cost: ∑f^d_j(1+β_j)Y_j
+2025-10-23 14:13:15,016 - INFO -     $350,000.00 (2.9% of total)
+2025-10-23 14:13:15,016 - INFO -       Dallas: $350,000.00
+2025-10-23 14:13:15,016 - INFO - 
+[3] Manufacturing Variable + Inbound Transport:
+2025-10-23 14:13:15,016 - INFO -     ∑(v^m_i + 3/2000·d^MD_ij(1+γ_ij))X_ij
+2025-10-23 14:13:15,016 - INFO -     $3,600,000.00 (29.5% of total)
+2025-10-23 14:13:15,016 - INFO - 
+[4] Outbound Distribution Cost:
+2025-10-23 14:13:15,016 - INFO -     ∑Z_jc/6·(p^j+9.75+3.5·d^DC_jc/500)(1+δ_jc)
+2025-10-23 14:13:15,016 - INFO -     $7,546,819.33 (61.9% of total)
+2025-10-23 14:13:15,016 - INFO - 
+----------------------------------------------------------------------
+2025-10-23 14:13:15,016 - INFO - Calculated Total (sum of components): $12,196,819.33
+2025-10-23 14:13:15,016 - INFO - Solver Reported Total:                 $12,196,819.33
+2025-10-23 14:13:15,016 - INFO - Difference:                            $0.00
+2025-10-23 14:13:15,016 - INFO - [OK] Cost breakdown matches solver objective perfectly
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === DUALITY GAP ANALYSIS (Weak/Strong Duality) ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - Primal Objective (p*): $12,196,819.33
+2025-10-23 14:13:15,016 - INFO - Note: For binary Y variables, this is the MILP solution.
+2025-10-23 14:13:15,016 - INFO - Strong duality holds exactly only for LP relaxation (Y ∈ [0,1]).
+2025-10-23 14:13:15,016 - INFO - For MILP (Y ∈ {0,1}), dual provides a valid lower bound.
+2025-10-23 14:13:15,016 - INFO - 
+======================================================================
+2025-10-23 14:13:15,016 - INFO - === BUSINESS INSIGHTS & RECOMMENDATIONS ===
+2025-10-23 14:13:15,016 - INFO - ======================================================================
+2025-10-23 14:13:15,016 - INFO - 
+Pricing Analysis (20% target margin):
+2025-10-23 14:13:15,016 - INFO -   Total annual cost:     $12,196,819.33
+2025-10-23 14:13:15,016 - INFO -   Revenue needed:        $15,246,024.17
+2025-10-23 14:13:15,016 - INFO -   Annual orders:         333,333
+2025-10-23 14:13:15,016 - INFO -   Recommended price:     $45.74 per order (6 bottles)
+2025-10-23 14:13:15,016 - INFO -   Price per bottle:      $7.62
+2025-10-23 14:13:15,016 - INFO - 
+Network Efficiency:
+2025-10-23 14:13:15,017 - INFO -   Average delivery distance: 1045.6 miles
+2025-10-23 14:13:15,017 - INFO -   Network utilization:       16.7% (2/12 facilities)
+2025-10-23 14:13:15,017 - INFO -   Network concentration:     1 co-located facilities
+2025-10-23 14:13:15,017 - INFO - 
+======================================================================
+2025-10-23 14:13:15,017 - INFO - === SENSITIVITY ANALYSIS (Version 3 Scenarios) ===
+2025-10-23 14:13:15,017 - INFO - ======================================================================
+2025-10-23 14:13:15,017 - INFO - 
+Baseline total cost: $12,196,819.33
+2025-10-23 14:13:15,017 - INFO - Testing 6 scenarios...
+
+2025-10-23 14:13:15,017 - INFO - [fuel_increase_20pct]
+2025-10-23 14:13:15,017 - INFO -   20% increase in transportation costs
+2025-10-23 14:13:15,017 - INFO -   Coefficients: α=+0%, β=+0%, γ=+20%, δ=+20%
+2025-10-23 14:13:15,017 - INFO -   Estimated cost: $13,814,183.20
+2025-10-23 14:13:15,017 - INFO -   Change: $+1,617,363.87 (+13.3%)
+2025-10-23 14:13:15,017 - INFO - 
+2025-10-23 14:13:15,017 - INFO - [fuel_decrease_15pct]
+2025-10-23 14:13:15,017 - INFO -   15% decrease in transportation costs
+2025-10-23 14:13:15,017 - INFO -   Coefficients: α=+0%, β=+0%, γ=-15%, δ=-15%
+2025-10-23 14:13:15,017 - INFO -   Estimated cost: $10,983,796.43
+2025-10-23 14:13:15,017 - INFO -   Change: $-1,213,022.90 (-9.9%)
+2025-10-23 14:13:15,017 - INFO - 
+2025-10-23 14:13:15,017 - INFO - [facility_cost_increase_10pct]
+2025-10-23 14:13:15,017 - INFO -   10% increase in facility fixed costs
+2025-10-23 14:13:15,017 - INFO -   Coefficients: α=+10%, β=+10%, γ=+0%, δ=+0%
+2025-10-23 14:13:15,017 - INFO -   Estimated cost: $12,301,819.33
+2025-10-23 14:13:15,017 - INFO -   Change: $+105,000.00 (+0.9%)
+2025-10-23 14:13:15,017 - INFO - 
+2025-10-23 14:13:15,017 - INFO - [combined_adverse]
+2025-10-23 14:13:15,017 - INFO -   Combined adverse scenario: +15% facilities, +25% transport
+2025-10-23 14:13:15,017 - INFO -   Coefficients: α=+15%, β=+15%, γ=+25%, δ=+25%
+2025-10-23 14:13:15,017 - INFO -   Estimated cost: $14,376,024.17
+2025-10-23 14:13:15,017 - INFO -   Change: $+2,179,204.83 (+17.9%)
+2025-10-23 14:13:15,017 - INFO - 
+2025-10-23 14:13:15,017 - INFO - [combined_favorable]
+2025-10-23 14:13:15,017 - INFO -   Combined favorable scenario: -10% facilities, -15% transport
+2025-10-23 14:13:15,017 - INFO -   Coefficients: α=-10%, β=-10%, γ=-15%, δ=-15%
+2025-10-23 14:13:15,017 - INFO -   Estimated cost: $10,878,796.43
+2025-10-23 14:13:15,017 - INFO -   Change: $-1,318,022.90 (-10.8%)
+2025-10-23 14:13:15,017 - INFO - 
+2025-10-23 14:13:15,017 - INFO - ======================================================================
+2025-10-23 14:13:15,017 - INFO - SENSITIVITY SUMMARY:
+2025-10-23 14:13:15,017 - INFO - ======================================================================
+2025-10-23 14:13:15,017 - INFO - 
+Scenarios ranked by impact:
+2025-10-23 14:13:15,017 - INFO - 1. combined_adverse: +17.9% (Combined adverse scenario: +15% facilities, +25% transport)
+2025-10-23 14:13:15,017 - INFO - 2. fuel_increase_20pct: +13.3% (20% increase in transportation costs)
+2025-10-23 14:13:15,017 - INFO - 3. combined_favorable: -10.8% (Combined favorable scenario: -10% facilities, -15% transport)
+2025-10-23 14:13:15,017 - INFO - 4. fuel_decrease_15pct: -9.9% (15% decrease in transportation costs)
+2025-10-23 14:13:15,017 - INFO - 5. facility_cost_increase_10pct: +0.9% (10% increase in facility fixed costs)
+2025-10-23 14:13:15,017 - INFO - 
+======================================================================
+2025-10-23 14:13:15,017 - INFO - RECOMMENDATIONS:
+2025-10-23 14:13:15,017 - INFO - ======================================================================
+2025-10-23 14:13:15,017 - INFO - 
+[BEST CASE] combined_favorable
+2025-10-23 14:13:15,017 - INFO -   Cost: $10,878,796.43 (-10.8%)
+2025-10-23 14:13:15,017 - INFO - 
+[WORST CASE] combined_adverse
+2025-10-23 14:13:15,017 - INFO -   Cost: $14,376,024.17 (+17.9%)
+2025-10-23 14:13:15,017 - INFO - 
+[COST RANGE] Cost range across scenarios: $3,497,227.73
+2025-10-23 14:13:15,017 - INFO -    This represents 28.7% variability
+2025-10-23 14:13:15,017 - INFO - 
+[KEY INSIGHTS]
+2025-10-23 14:13:15,017 - INFO -    - Transportation costs (gamma, delta) are critical factors
+2025-10-23 14:13:15,017 - INFO -    - Facility costs (alpha, beta) have moderate impact
+2025-10-23 14:13:15,017 - INFO -    - Consider hedging strategies for fuel price volatility
+2025-10-23 14:13:15,017 - INFO -    - Long-term contracts could stabilize costs
+2025-10-23 14:13:15,017 - INFO - === JUICE 2U ENHANCED SUPPLY CHAIN OPTIMIZATION ===
+2025-10-23 14:13:15,017 - INFO - Model successfully executed with comprehensive analysis
+2025-10-23 14:13:15,017 - INFO - All optimization components completed successfully
+2025-10-23 14:13:15,017 - INFO - [OK] Optimal solution found and validated
+2025-10-23 14:13:15,017 - INFO - [OK] All constraints satisfied
+2025-10-23 14:13:15,017 - INFO - [OK] Cost breakdown verified
+2025-10-23 14:13:15,017 - INFO - [OK] Sensitivity analysis completed
