@@ -1,8 +1,8 @@
 ## Iteration Version 3
 
-## This Markdown file is the iteration of the model, objective function, constraints, with detailed mathematical proof anda  few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
+## This Markdown file is the iteration of the model, objective function, constraints, with detailed mathematical proof and a few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
 
-## Author: Mingchen Yuan, my2878@columbia.edu, mingcy@umich.edu, yuanmingchen922@gmail.com, @yuanmingchen922
+## Author: Mingchen Yuan, my2878@columbia.edu, mingcy@umich.edu, yuanmingchen922@gmail.com
 ## Github Link: "https://github.com/yuanmingchen922/DHL.1"
 
 
@@ -41,7 +41,7 @@ L(X,Z,Y;\lambda,\mu)
 \quad \lambda,\mu \ge 0.
 $$
 
-3. Dual Functon: 
+3. Dual Function: 
 $$
 G(\lambda,\mu)
 = \min_{X,Z,Y} L(X,Z,Y;\lambda,\mu).
@@ -95,7 +95,7 @@ $$
 - **Scenario Coefficients**
 
   $\alpha_i, \beta_j, \gamma_{ij}, \delta_{jc}$:  
-  scenario perturbation or sensitivity coefficients .  
+  scenario perturbation or sensitivity coefficients.  
 
 ---
 
@@ -389,7 +389,7 @@ $$
 $$
 
 The KKT shortest-path conditions indicate that for optimal flows,  
-if the reduced cost \(\tilde{c}^X_{ij}(\lambda)\) or \(\tilde{c}^Z_{jc}(\mu)\) is minimal on feasible arcs, then those arcs carry positive flow. 
+If the reduced cost \(\tilde{c}^X_{ij}(\lambda)\) or \(\tilde{c}^Z_{jc}(\mu)\) is minimal on feasible arcs, then those arcs carry positive flow. 
 
 ---
 
@@ -425,7 +425,7 @@ $$
 $$
 
 The Lagrangian and its dual follow as before.  
-Under strong duality, there exists \((X^*,Z^*,Y^*;\lambda^*,\mu^*)\) is the optimal for all solutions iff the following are satisfied :
+Under strong duality, there exists \((X^*, Z^*, Y^*;\lambda^*,\mu^*)\) is the optimal for all solutions iff the following are satisfied :
 
 - **Primal feasibility:** satisfies (H), (LNK)  
 - **Dual feasibility:** \(\lambda^*,\mu^* \ge 0\)  
@@ -437,7 +437,7 @@ Under strong duality, there exists \((X^*,Z^*,Y^*;\lambda^*,\mu^*)\) is the opti
   $$
 
 - **Stationarity:**  
-  Gradients of the Lagrangian w.r.t. all continuous variables vanish. Equivalently, reduced costs are non-negative in the minimum-cost flow.
+  Gradients of the Lagrangian with respect to. All continuous variables vanish. Equivalently, reduced costs are non-negative in the minimum-cost flow.
 
 Together, these KKT conditions are **necessary and sufficient** for optimality in the LP-relaxed problem.
 
@@ -469,7 +469,7 @@ $$
 \tilde{c}^Z_{jc}(\mu) = \frac{1}{6}\Big(p^j + 9.75 + 3.5\frac{d^{DC}_{jc}}{500}\Big)(1+\delta_{jc}) + \mu_{jc}.
 $$
 
-Flows occur only on the arcs with minimum reduced cost  
+Flows occur only on the arcs with the minimum reduced cost  
 that satisfy **Demand** and **Balance** constraints.
 
 ---
@@ -477,7 +477,7 @@ that satisfy **Demand** and **Balance** constraints.
 ### **(c) Dual Ascent Update**
 
 Use the subgradient formula directly from SubGrad:  
-update dual variables using the rule in Ascent until convergence.
+Update dual variables using the rule in Ascent until convergence.
 
 ---
 
