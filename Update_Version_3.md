@@ -1,15 +1,15 @@
 ## Iteration Version 3
 
-## This Markdown file is the iteration of model, objective function, constraints with detailed mathematics proof and few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
+## This Markdown file is the iteration of the model, objective function, constraints, with detailed mathematical proof anda  few key notes from the theorem. My formula represents a mathematically rigorous Lagrangian dual of the facility-distribution optimization model
 
 ## Author: Mingchen Yuan, my2878@columbia.edu, mingcy@umich.edu, yuanmingchen922@gmail.com, @yuanmingchen922
 ## Github Link: "https://github.com/yuanmingchen922/DHL.1"
 
 
-# My overall workflow is illurstrated as below 
-Farkas Lemma⇒Weak Duality⇒Strong Duality⇒KKT Conditions⇒Primal–Dual Convergence
+# My overall workflow is illustrated below 
+Farkas Lemma (version1) ⇒ Weak Duality ⇒ Strong Duality ⇒ KKT Conditions ⇒ Primal–Dual Convergence
 
-# Objective Function Version 3: A gengeral form 
+# Objective Function Version 3: A general form 
 $$
 \boxed{
 \max_{\lambda,\mu \ge 0} \; \min_{X,Z,Y} \;
